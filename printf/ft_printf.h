@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/25 15:58:00 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/25 19:32:41 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,13 @@ void			ft_left_over_zero(t_flags *flags);
 void			ft_length_priority(t_flags *flags);
 void			ft_signed_priority(t_flags *flags);
 void			ft_size_priority(t_flags *flags);
-void			ft_arg_tab_initialize(t_flags *flags);
+void			ft_arg_tab_initialize(t_flags *flags); // plus utilisee
+void			ft_init_fctptr_table(void (**ptr_tab)(t_flags*));
+void			ft_access_ptrtab(t_flags *flags, void (**ptr_tab)(t_flags*));
 void			ft_int_arg(t_flags *flags);
+int				ft_malloc_len(t_flags *flags);
+void			ft_edit_raw(t_flags *flags);
+void			ft_edit_raw_left(t_flags *flags);
 void			ft_print_flags(t_flags *flags); // pour test
 
 #endif

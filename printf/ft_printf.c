@@ -6,13 +6,13 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/24 18:29:25 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/25 19:34:01 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strparse(char *s, va_list *ap)
+char	*ft_strparse(char *s, va_list *ap, void (**ptr_tab)(t_flags*))
 {
 	t_flags	*flags;
 	char	*buf;
@@ -35,9 +35,8 @@ char	*ft_strparse(char *s, va_list *ap)
 		{
 			s++;
 			s = ft_grep_all(s, flags, ap);
-			ft_arg_tab_initialize(flags);
-	//		ft_set_priority(flags); dans variadic.c
-		//	ft_print_flags(flags);
+		//	ft_arg_tab_initialize(flags);
+			ptr_tab[(int)flags->conversion](flags);
 			buf = ft_strjoin(buf, flags->edited);
 		}
 	}
@@ -66,32 +65,17 @@ int		ft_printf(const char * restrict format, ...)
 {
 	va_list ap;
 	va_list *list;
-	char	*s;
 	int		count;
 	char	*buf;
+	void	(*ptr_tab[128])(t_flags*);
 
-	s = (char*)format;
+	ft_init_fctptr_table(ptr_tab);
 	count = 0;
 	va_start(ap, format);
 	list = &ap;
-	buf = ft_strparse(s, list);
+	buf = ft_strparse((char*)format, list, ptr_tab);
 	count = ft_strlen(buf);
 	ft_putstr(buf);
-	//ft_putendl("");
 	va_end(ap);
 	return (count);
 }
-
-/*int	main(void)
-{
-	char i;
-	
-	i = 3050;
-//	ft_putstr("to parse : ");
-//	ft_putendl(("%-++05.2aqwrqwrqwr"));
-	ft_printf("%lld", -30000);
-//	ft_putstr(ft_strparse("asdas%d%l%agds%%ll%lptest", list));
-//	ft_putendl("");
-	printf("%lld", -30000);
-	return (0);
-}*/

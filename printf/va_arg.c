@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 15:17:11 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/24 18:30:30 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/25 19:34:28 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		*ft_init_ascii_tab(int *ascii_tab)
 	return (ascii_tab);
 }
 
-void	ft_init_fctptr_table(void	(**ptr_tab)(t_flags*))
+void	ft_init_fctptr_table(void (**ptr_tab)(t_flags*))
 {
 	int	i;
 
@@ -59,7 +59,7 @@ void	ft_init_fctptr_table(void	(**ptr_tab)(t_flags*))
 	ptr_tab[120] = &int_arg; // x*/
 }
 
-void	ft_arg_tab_initialize(t_flags *flags)
+/*void	ft_arg_tab_initialize(t_flags *flags)
 {
 	int		ascii_tab[128];
 	void	(*ptr_tab[128])(t_flags*);
@@ -67,9 +67,4 @@ void	ft_arg_tab_initialize(t_flags *flags)
 	ft_init_ascii_tab(ascii_tab);
 	ft_init_fctptr_table(ptr_tab);
 	ptr_tab[(int)flags->conversion](flags);
-}
-
-void	ft_access_ptrtab(t_flags *flags, void (**ptr_tab)(t_flags*))
-{
-	 ptr_tab[(int)flags->conversion](flags);
-}
+}*/

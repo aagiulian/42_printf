@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/01/24 18:31:26 by agiulian         ###   ########.fr        #
+#    Updated: 2017/01/25 19:40:03 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,8 @@ SRC = libft/ft_atoi.c \
 	  printf/va_arg.c \
 	  printf/priority.c \
 	  printf/struct_handling.c \
-	  printf/grep.c
+	  printf/grep.c \
+	  printf/int_arg.c
 
 HEAD = -Ilibft/includes/ -Iprintf/.
 
