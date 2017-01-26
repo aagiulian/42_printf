@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/01/26 18:44:44 by agiulian         ###   ########.fr        #
+#    Updated: 2017/01/26 23:28:51 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,9 +90,11 @@ SRC = libft/ft_atoi.c \
 	  printf/priority.c \
 	  printf/struct_handling.c \
 	  printf/grep.c \
+	  printf/char_arg.c \
 	  printf/int_arg.c \
 	  printf/uint_arg.c \
 	  printf/oint_arg.c \
+	  printf/str_arg.c \
 	  printf/xint_arg.c \
 	  printf/xcapint_arg.c \
 	  printf/pct_arg.c

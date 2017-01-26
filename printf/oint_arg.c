@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 18:41:51 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 00:12:23 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ft_oint_arg(t_flags *flags)
 {
 	ft_oint_conversion(flags);
 	ft_set_priority(flags);
+	if (flags->alternate_form)
+		flags->precision = flags->raw_len + 1;
 	flags->malloc_len = ft_malloc_len(flags);
 	flags->edited = (char*)ft_strnew(flags->malloc_len + 1);
 	if (!flags->edited)
