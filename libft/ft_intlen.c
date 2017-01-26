@@ -6,11 +6,11 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 14:20:52 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 14:54:42 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/26 17:28:48 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_intlen(long long int i)
+int		ft_intlen(unsigned long long int i)
 {
 	int size;
 

@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/01/26 13:57:22 by agiulian         ###   ########.fr        #
+#    Updated: 2017/01/26 18:44:44 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,10 @@ SRC = libft/ft_atoi.c \
 	  libft/ft_tabdel.c \
 	  libft/ft_lstpop.c \
 	  libft/ft_strnjoin.c \
+	  libft/ft_intlen.c \
+	  libft/ft_intsize.c \
+	  libft/ft_itoabase.c \
+	  libft/ft_itoabase_cap.c \
 	  printf/ft_printf.c \
 	  printf/variadic.c \
 	  printf/va_arg.c \
@@ -87,6 +91,10 @@ SRC = libft/ft_atoi.c \
 	  printf/struct_handling.c \
 	  printf/grep.c \
 	  printf/int_arg.c \
+	  printf/uint_arg.c \
+	  printf/oint_arg.c \
+	  printf/xint_arg.c \
+	  printf/xcapint_arg.c \
 	  printf/pct_arg.c
 
 HEAD = -Ilibft/includes/ -Iprintf/.

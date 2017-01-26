@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoabase_cap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 14:16:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 15:30:47 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/26 18:47:03 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ static char	*ft_fillstr(unsigned long long sav[3], char *b_tab, int base, \
 	return (s);
 }
 
-char		*ft_itoabase(long long int nbr, int base)
+char		*ft_itoabase_cap(long long int nbr, int base)
 {
 	char				*b_tab;
 	unsigned long long	size[3];
 	char				*s;
 
-	b_tab = "0123456789abcdef";
+	b_tab = "0123456789ABCDEF";
 	size[2] = (nbr < 0) ? 2 : 1;
 	size[1] = (nbr < 0) ? (-nbr) : nbr;
 	size[0] = ft_intsize(size[1], base);
-	if (!(s = (char*)malloc(sizeof(char) * size[2] + 1)))
+	if (!(s = (char*)malloc(sizeof(char) * (size[2] + ft_intlen(size[1]) \
+						+ 1))))
 		return (NULL);
 	size[2] = 0;
 	if (nbr < 0 && base == 10)

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 15:17:11 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 13:51:58 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/26 19:14:20 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,21 @@ void	ft_init_fctptr_table(void (**ptr_tab)(t_flags*))
 //		ptr_tab[i] = &ft_conv_error;
 //		i++;
 //	}
-	ptr_tab[37] = &ft_pct_arg;;//&pct_arg; // %
-	ptr_tab[105] = &ft_int_arg; // i
+	ptr_tab[37] = &ft_pct_arg;//&pct_arg; // %
+//	ptr_tab[67] = &c_arg; // C
+	ptr_tab[68] = &ft_int_arg; // D
+	ptr_tab[79] = &ft_oint_arg; // O
+//	ptr_tab[83] = &S_arg; // S
+	ptr_tab[85] = &ft_uint_arg; // U
+	ptr_tab[88] = &ft_xcapint_arg; // X
+//	ptr_tab[99] = &c_arg; // c
 	ptr_tab[100] = &ft_int_arg; // d
-//	ptr_tab[37] = &ft_pct_arg;//&pct_arg; // %
-/*	ptr_tab[67] = &c_arg; // C
-	ptr_tab[68] = &dou_arg; // D
-	ptr_tab[79] = &int_arg; // O
-	ptr_tab[83] = &S_arg; // S
-	ptr_tab[85] = &dou_arg; // U
-	ptr_tab[88] = &int_arg; // X
-	ptr_tab[99] = &c_arg; // c
-	ptr_tab[100] = &int_arg; // d
-	ptr_tab[105] = &int_arg; // i
-	ptr_tab[111] = &int_arg; // o
-	ptr_tab[112] = &ptr_arg; // p
-	ptr_tab[115] = &s_arg; // s
-	ptr_tab[117] = &int_arg; // u
-	ptr_tab[120] = &int_arg; // x*/
+	ptr_tab[105] = &ft_int_arg; // i
+	ptr_tab[111] = &ft_oint_arg; // o
+//	ptr_tab[112] = &ptr_arg; // p
+//	ptr_tab[115] = &s_arg; // s
+	ptr_tab[117] = &ft_uint_arg; // u
+	ptr_tab[120] = &ft_xint_arg; // x
 }
 
 /*void	ft_arg_tab_initialize(t_flags *flags)

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/25 19:37:12 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/26 20:12:59 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,15 @@ void	ft_fill_width(t_flags *flags)
 		flags->width--;
 }
 
+void	ft_set_hashtag(t_flags *flags)
+{
+	if (flags->conversion == 'x' || flags->conversion == 'X')
+	{
+		flags->edited[flags->index] = '0';
+		flags->edited[flags->index + 1] = (flags->conversion == 'x') ? 'x' : 'X';
+		flags->index += 2;
+	}
+}
 void	ft_set_width(t_flags *flags)
 {
 	if (flags->sign == 0)
@@ -94,6 +103,8 @@ void	ft_edit_raw(t_flags *flags)
 		ft_put_space(flags);
 	if (flags->width > 0)
 		ft_set_width(flags);
+	if (flags->alternate_form)
+		ft_set_hashtag(flags);
 	if (flags->sign > 0)
 		ft_put_sign(flags);
 	while (flags->precision > flags->raw_len)
@@ -112,6 +123,8 @@ void	ft_edit_raw_left(t_flags *flags)
 		ft_put_sign(flags);
 	if (flags->space)
 		ft_put_space(flags);
+	if (flags->alternate_form)
+		ft_set_hashtag(flags);
 	while (flags->precision > flags->raw_len)
 	{
 		(flags->edited)[flags->index] = '0';
@@ -120,6 +133,9 @@ void	ft_edit_raw_left(t_flags *flags)
 	}
 	ft_strcpy(flags->edited + flags->index, flags->raw - flags->sign);
 	flags->index += flags->raw_len;
+	if ((flags->conversion == 'x' || flags->conversion == 'X') && \
+			flags->alternate_form)
+		flags->index -= 2;
 	if (flags->width > 0)
 		ft_set_width(flags);
 	(flags->edited)[flags->malloc_len] = '\0';

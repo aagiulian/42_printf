@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 17:15:07 by agiulian          #+#    #+#             */
-/*   Updated: 2016/11/05 17:24:50 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/26 17:47:39 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@ char	*ft_strcpy(char *dst, const char *src)
 	unsigned int i;
 
 	i = 0;
-	while (src[i])
+	if (src[i])
 	{
-		dst[i] = src[i];
-		i++;
+		while (src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	dst[i] = '\0';
 	return (dst);
 }

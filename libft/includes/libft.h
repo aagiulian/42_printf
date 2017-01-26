@@ -6,7 +6,7 @@
 /*   By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 20:53:51 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 15:32:18 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/26 17:29:58 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 
-int					ft_intlen(long long int i);
-unsigned long long	ft_intsize(long long int i, int base);
+int					ft_intlen(unsigned long long int i);
+unsigned long long	ft_intsize(unsigned long long int i, int base);
 
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
-char				*ft_itoa_base(long long int nbr, int base);
-char				*ft_itoa_basecap(long long int nbr, int base);
+char				*ft_itoabase(long long int nbr, int base);
+char				*ft_itoabase_cap(long long int nbr, int base);
 void				ft_putchar(char c);
 void				ft_putnbr(int n);
 
