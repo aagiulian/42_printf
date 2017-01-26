@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2016/11/30 17:42:11 by agiulian         ###   ########.fr        #
+#    Updated: 2017/01/26 15:32:02 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,11 @@ SRC = ft_atoi.c \
 	  ft_tablen.c \
 	  ft_tabdel.c \
 	  ft_lstpop.c \
-	  ft_strnjoin.c
+	  ft_strnjoin.c \
+	  ft_intlen.c \
+	  ft_intsize.c \
+	  ft_itoabase.c \
+	  ft_itoabase_cap.c
 
 HEAD = -Iincludes/
 
