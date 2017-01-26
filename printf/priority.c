@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/25 19:35:08 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/26 13:56:24 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	ft_size_priority(t_flags *flags)
 	char	*list;
 
 	list = "di";
+	if (flags->conversion == '%')
+		flags->precision = 0;
 	if (ft_strchr(list, flags->conversion))
 	{
 		if (flags->raw_len >= flags->width)

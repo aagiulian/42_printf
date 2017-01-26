@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pct_arg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 14:04:23 by agiulian         ###   ########.fr       */
+/*   Created: 2017/01/26 13:41:46 by agiulian          #+#    #+#             */
+/*   Updated: 2017/01/26 13:53:03 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf/ft_printf.h"
+#include "ft_printf.h"
 
-int	main(void)
+static void	ft_pct_conversion(t_flags *flags)
 {
-//	char i;
-
-	//i = 3050;
-	ft_printf("'%-10.5hh%'\n", 4294967295);
-	//ft_putendl("");
-	printf("'%-10.5hh%'");
-	return (0);
+	flags->raw = (char*)malloc(sizeof(2));
+	flags->raw = "%";
+}
+void		ft_pct_arg(t_flags *flags)
+{
+	ft_pct_conversion(flags);
+	ft_set_priority(flags);
+	flags->malloc_len = ft_malloc_len(flags);
+	flags->edited = (char*)malloc(sizeof(flags->malloc_len + 1));
+	if (flags->left_adjusting)
+		ft_edit_raw_left(flags);
+	else
+		ft_edit_raw(flags);
 }
