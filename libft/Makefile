@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/01/26 17:06:19 by agiulian         ###   ########.fr        #
+#    Updated: 2017/01/27 15:55:54 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,9 @@ SRC = ft_atoi.c \
 	  ft_intlen.c \
 	  ft_intsize.c \
 	  ft_itoabase.c \
-	  ft_itoabase_cap.c
+	  ft_itoabase_cap.c \
+	  ft_uitoabase.c \
+	  ft_uitoabase_cap.c
 
 HEAD = -Iincludes/
 

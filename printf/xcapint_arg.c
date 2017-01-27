@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 20:03:44 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 16:20:59 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_xcapint_arg(t_flags *flags)
 		flags->alternate_form = 0;
 	ft_set_priority(flags);
 	flags->malloc_len = ft_malloc_len(flags);
-	flags->edited = (char*)ft_strnew(flags->malloc_len + 1);
+	flags->edited = (char*)ft_strnew(flags->malloc_len);
 	if (!flags->edited)
 		return;
 	if (flags->left_adjusting)

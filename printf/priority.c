@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 19:53:33 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 16:49:34 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 void	ft_set_priority(t_flags *flags)
 {
 	flags->raw_len = ft_strlen(flags->raw);
-	if ((flags->conversion == 'x' || flags->conversion == 'X') && 
-			flags->alternate_form)
+	if ((flags->conversion == 'x' || flags->conversion == 'X' || \
+				flags->conversion == 'p') && flags->alternate_form)
 		flags->raw_len += 2;
 	ft_signed_priority(flags);
 	ft_zero_priority(flags);
-//	ft_length_priority(flags); mis directement dans les arg
+	//	ft_length_priority(flags); mis directement dans les arg
 	ft_size_priority(flags);
 }
 
@@ -32,34 +32,34 @@ void	ft_zero_priority(t_flags *flags)
 	if (flags->zero_padding && flags->left_adjusting)
 		flags->zero_padding = 0;
 	if (ft_strchr(list, flags->conversion))
+	{
+		if (flags->precision)
+			flags->zero_padding = 0;
+		else if (flags->zero_padding)
 		{
-			if (flags->precision)
-				flags->zero_padding = 0;
-			else if (flags->zero_padding)
-			{
-				flags->precision = flags->width;
-				if (flags->precision && flags->sign)
-					flags->precision--;
-			}
+			flags->precision = flags->width;
+			if (flags->precision && flags->sign)
+				flags->precision--;
 		}
-//	if ((flags->precision) && ft_strchr(list, flags->conversion))
-//		flags->zero_padding = 0;
-//	if (flags->zero_padding && ft_strchr(list,flags->conversion)
+	}
+	//	if ((flags->precision) && ft_strchr(list, flags->conversion))
+	//		flags->zero_padding = 0;
+	//	if (flags->zero_padding && ft_strchr(list,flags->conversion)
 }
 
 void	ft_size_priority(t_flags *flags)
 {
 	char	*list;
 
-	list = "diouxX";
+	list = "dioOuxX";
 	if (flags->conversion == '%')
 		flags->precision = 0;
 	if (ft_strchr(list, flags->conversion))
 	{
 		if (flags->raw_len >= flags->width)
 			flags->width = 0;
-//		if (flags->raw_len >= flags->precision) pour i a voir si ca 
-//			flags->precision = 0;
+		//		if (flags->raw_len >= flags->precision) pour i a voir si ca 
+		//			flags->precision = 0;
 		if (flags->sign == 2)
 			flags->raw_len--;
 		if (flags->precise && flags->raw_len == 1 && flags->raw[0] == \

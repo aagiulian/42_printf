@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 18:57:44 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/25 15:58:12 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 17:58:23 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void	ft_reset_struct(t_flags *flags, va_list *ap)
 	flags->l = 0;
 	flags->j = 0;
 	flags->z = 0;
-	flags->conversion = '\0';
+	flags->conversion = '0';
+//	ft_strdel(flags->raw);
 	flags->raw = NULL;
 	flags->raw_len = 0;
 	flags->malloc_len = 0;
-	flags->edited = NULL;
+//	ft_strdel(flags->edited);
+	flags->edited = NULL;//
 	flags->index = 0;
 }
 

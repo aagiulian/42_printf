@@ -6,7 +6,7 @@
 /*   By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 20:53:51 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 17:29:58 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 15:56:29 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				*ft_itoabase(long long int nbr, int base);
 char				*ft_itoabase_cap(long long int nbr, int base);
+char				*ft_uitoabase(unsigned long long int nbr, int base);
+char				*ft_uitoabase_cap(unsigned long long int nbr, int base);
 void				ft_putchar(char c);
 void				ft_putnbr(int n);
 

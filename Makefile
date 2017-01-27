@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/01/26 23:28:51 by agiulian         ###   ########.fr        #
+#    Updated: 2017/01/27 15:56:44 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,8 @@ SRC = libft/ft_atoi.c \
 	  libft/ft_intsize.c \
 	  libft/ft_itoabase.c \
 	  libft/ft_itoabase_cap.c \
+	  libft/ft_uitoabase.c \
+	  libft/ft_uitoabase_cap.c \
 	  printf/ft_printf.c \
 	  printf/variadic.c \
 	  printf/va_arg.c \

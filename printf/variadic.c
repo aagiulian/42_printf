@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 20:12:59 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 16:44:41 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ void	ft_fill_width(t_flags *flags)
 
 void	ft_set_hashtag(t_flags *flags)
 {
-	if (flags->conversion == 'x' || flags->conversion == 'X')
+	if (flags->conversion == 'x' || flags->conversion == 'X' || flags->conversion == 'p')
 	{
 		flags->edited[flags->index] = '0';
-		flags->edited[flags->index + 1] = (flags->conversion == 'x') ? 'x' : 'X';
+		flags->edited[flags->index + 1] = (flags->conversion == 'X') ? 'X' : 'x';
 		flags->index += 2;
 	}
 }
@@ -115,6 +115,8 @@ void	ft_edit_raw(t_flags *flags)
 	}
 	ft_strcpy(flags->edited + flags->index, flags->raw - flags->sign);
 	(flags->edited)[flags->malloc_len] = '\0';
+//	if (flags->raw)
+//		ft_strdel(&flags->raw);
 }
 
 void	ft_edit_raw_left(t_flags *flags)
@@ -139,4 +141,6 @@ void	ft_edit_raw_left(t_flags *flags)
 	if (flags->width > 0)
 		ft_set_width(flags);
 	(flags->edited)[flags->malloc_len] = '\0';
+//	if (flags->raw)
+//		ft_strdel(&flags->raw);
 }

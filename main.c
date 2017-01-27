@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 01:15:04 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 18:06:54 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 int	main(void)
 {
 //	char i;
+	int i;
 
-	//i = 3050;
+	i = 3050;
 	//ft_putendl("");
-	ft_printf("@moulitest: %s\n", ""); 
-	printf("@moulitest: %s\n", NULL); 
+	ft_printf("%");
+	printf("% Zoooo");
+	ft_printf("% Zoooo");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 00:38:08 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 18:06:05 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ t_flags *flags)
 			s = ft_grep_all(s, flags, ap);
 		//	ft_arg_tab_initialize(flags);
 			ptr_tab[(int)flags->conversion](flags);
-			buf = ft_strjoin(buf, flags->edited);
+			if (flags->edited)
+				buf = ft_strjoin(buf, flags->edited);
 		}
 	}
 	return (buf);
@@ -63,18 +64,24 @@ t_flags *flags)
 int		ft_printf(const char * restrict format, ...)
 {
 	va_list ap;
-	va_list *list;
 	char	*buf;
 	void	(*ptr_tab[128])(t_flags*);
 	t_flags	*flags;
+	int		count;
 
+	count = 0;
+	if (ft_strlen(format) == 1 && format[0] == '%')
+		return (0);
 	flags = (t_flags*)malloc(sizeof(t_flags));
 	ft_init_fctptr_table(ptr_tab);
 	flags->ret = 0;
 	va_start(ap, format);
-	list = &ap;
-	buf = ft_strparse((char*)format, list, ptr_tab, flags);
+	buf = ft_strparse((char*)format, &ap, ptr_tab, flags);
+	count = (flags->ret) ? (ft_strlen(buf) + flags->ret) : ft_strlen(buf);
+//	ft_reset_struct(flags, ap);
+	free(flags);
 	ft_putstr(buf);
+	ft_strdel(&buf);
 	va_end(ap);
-	return (ft_strlen(buf) + flags->ret);
+	return (count);
 }
