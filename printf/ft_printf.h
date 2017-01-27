@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/26 23:28:13 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 00:32:46 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct	s_flags
 	int			malloc_len;
 	char		*edited; // pareil
 	int			index;
+	int			ret;
 }				t_flags;
 
 int				ft_printf(const char *restrict format, ...);
