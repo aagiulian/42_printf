@@ -6,11 +6,12 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 18:06:54 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 21:58:32 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf/ft_printf.h"
+#include <limits.h>
 
 int	main(void)
 {
@@ -18,9 +19,14 @@ int	main(void)
 	int i;
 
 	i = 3050;
+	printf("{%-15Z}\n", 123);
+	ft_printf("{%-15Z}", 123);
+	printf("'{%03c}'\n", 0);
+	ft_printf("'{%03c}'\n", 0);
 	//ft_putendl("");
-	ft_printf("%");
-	printf("% Zoooo");
-	ft_printf("% Zoooo");
+	//printf("'{%3c}'\n", 0);
+	//ft_printf("'{%3c}'\n", 0);
+	//printf("ft : %i\n", ft_printf("{%3c}", 0));
+	//printf("pr : %i", printf("{%3c}", 0));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 16:20:59 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 21:47:41 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 void	ft_xcapint_conversion(t_flags *flags)
 {
 	if (!flags->h && !flags->l && !flags->j && !flags->j && !flags->z)
-		flags->raw = ft_itoabase_cap(va_arg(*(flags->ap), unsigned int), 16);
+		flags->raw = ft_uitoabase_cap(va_arg(*(flags->ap), unsigned int), 16);
 	else if (flags->h == 2)
-		flags->raw = ft_itoabase_cap((unsigned char)va_arg(*(flags->ap), \
+		flags->raw = ft_uitoabase_cap((unsigned char)va_arg(*(flags->ap), \
 					unsigned int), 16);
 	else if (flags->h == 1)
-		flags->raw = ft_itoabase_cap((unsigned short)va_arg(*(flags->ap), \
+		flags->raw = ft_uitoabase_cap((unsigned short)va_arg(*(flags->ap), \
 					unsigned int), 16);
 	else if (flags->l == 1)
-		flags->raw = ft_itoabase_cap((unsigned long)va_arg(*(flags->ap), \
+		flags->raw = ft_uitoabase_cap((unsigned long)va_arg(*(flags->ap), \
 					unsigned long int), 16);
 	else if (flags->l == 2)
-		flags->raw = ft_itoabase_cap(va_arg(*(flags->ap),unsigned \
+		flags->raw = ft_uitoabase_cap(va_arg(*(flags->ap),unsigned \
 					long long), 16);
 	else if (flags->j == 1)
-		flags->raw = ft_itoabase_cap((uintmax_t)va_arg(*(flags->ap), \
+		flags->raw = ft_uitoabase_cap((uintmax_t)va_arg(*(flags->ap), \
 					uintmax_t), 16);
 	else if (flags->z == 1)
-		flags->raw = ft_itoabase_cap((size_t)va_arg(*(flags->ap), size_t), 16);
+		flags->raw = ft_uitoabase_cap(va_arg(*(flags->ap), size_t), 16);
 }
 
 void	ft_xcapint_arg(t_flags *flags)

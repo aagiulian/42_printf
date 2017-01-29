@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 14:16:17 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 16:05:45 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 21:49:14 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_fillstr(unsigned long long sav[3], char *b_tab, int base, \
 	return (s);
 }
 
-char		*ft_uitoabase(unsigned long long int nbr, int base)
+char		*ft_uitoabase_cap(unsigned long long int nbr, int base)
 {
 	char				*b_tab;
 	unsigned long long	size[3];

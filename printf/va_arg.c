@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 15:17:11 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 18:08:59 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/27 22:09:17 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,19 @@
 
 void	ft_conv_error(t_flags *flags)
 {
-	flags->edited = NULL;
-//	ft_putendl("conversion format is bad");
+//	flags->edited = NULL;
+	flags->raw = ft_strnew(1);
+	flags->raw[0] = flags->conversion;
+	ft_set_priority(flags);
+	flags->malloc_len = flags->width;
+	flags->edited = (char*)ft_strnew(flags->malloc_len);
+	if (!flags->edited)
+		return;
+	if (flags->left_adjusting)
+		ft_edit_raw_left(flags);
+	else
+		ft_edit_raw(flags);
+	//	ft_putendl("conversion format is bad");
 }
 
 int		*ft_init_ascii_tab(int *ascii_tab)
@@ -42,10 +53,10 @@ void	ft_init_fctptr_table(void (**ptr_tab)(t_flags*))
 		i++;
 	}
 	ptr_tab[37] = &ft_pct_arg;//&pct_arg; // %
-//	ptr_tab[67] = &c_arg; // C
+	//	ptr_tab[67] = &c_arg; // C
 	ptr_tab[68] = &ft_int_arg; // D
 	ptr_tab[79] = &ft_oint_arg; // O
-//	ptr_tab[83] = &S_arg; // S
+	//	ptr_tab[83] = &S_arg; // S
 	ptr_tab[85] = &ft_uint_arg; // U
 	ptr_tab[88] = &ft_xcapint_arg; // X
 	ptr_tab[99] = &ft_char_arg; // c
@@ -59,11 +70,11 @@ void	ft_init_fctptr_table(void (**ptr_tab)(t_flags*))
 }
 
 /*void	ft_arg_tab_initialize(t_flags *flags)
-{
-	int		ascii_tab[128];
-	void	(*ptr_tab[128])(t_flags*);
+  {
+  int		ascii_tab[128];
+  void	(*ptr_tab[128])(t_flags*);
 
-	ft_init_ascii_tab(ascii_tab);
-	ft_init_fctptr_table(ptr_tab);
-	ptr_tab[(int)flags->conversion](flags);
-}*/
+  ft_init_ascii_tab(ascii_tab);
+  ft_init_fctptr_table(ptr_tab);
+  ptr_tab[(int)flags->conversion](flags);
+  }*/
