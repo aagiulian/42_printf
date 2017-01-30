@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 18:47:23 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 21:15:16 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ t_flags *flags)
 		}
 		if (*s && *s == '%')
 		{
-	ft_print_flags(flags);
 			s++;
 			s = ft_grep_all(s, flags, ap);
 			ptr_tab[(int)flags->conversion](flags);
@@ -74,9 +73,8 @@ int		ft_printf(const char * restrict format, ...)
 	char	*buf;
 	void	(*ptr_tab[128])(t_flags*);
 	t_flags	*flags;
-	int		count;
+	int		ret;
 
-	count = 0;
 	if (ft_strlen(format) == 1 && format[0] == '%')
 		return (0);
 	flags = (t_flags*)malloc(sizeof(t_flags));
@@ -84,11 +82,11 @@ int		ft_printf(const char * restrict format, ...)
 	flags->ret = 0;
 	va_start(ap, format);
 	buf = ft_strparse((char*)format, &ap, ptr_tab, flags);
-//	ft_reset_struct(flags, ap);
+	ft_reset_struct(flags, ap);
+	ret = flags->ret;
 	free(flags);
-	ft_putnbr(count);
-	write(1, buf, flags->malloc_len);
+	write(1, buf, flags->ret);
 	ft_strdel(&buf);
 	va_end(ap);
-	return (count);
+	return (ret);
 }

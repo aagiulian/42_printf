@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 16:49:34 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 22:26:36 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_zero_priority(t_flags *flags)
 		else if (flags->zero_padding)
 		{
 			flags->precision = flags->width;
-			if (flags->precision && flags->sign)
+			if (flags->precision && (flags->sign || flags->space))
 				flags->precision--;
 		}
 	}

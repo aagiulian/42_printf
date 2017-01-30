@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 17:18:12 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 18:42:38 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 21:09:03 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_memjoin(char const *s1, char const *s2, unsigned int n1)
 		s_n[i++] = *s1++;
 	while (*s2)
 		s_n[i++] = *s2++;
-	free(s1);
+	//free(s1);
 	s_n[i] = '\0';
 	return (s_n);
 }

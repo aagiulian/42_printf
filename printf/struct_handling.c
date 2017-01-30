@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 18:57:44 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 17:58:23 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 20:17:12 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	ft_print_flags(t_flags *flags)
 	ft_putnbr(flags->malloc_len);
 	ft_putstr("\nedited : ");
 	ft_putstr(flags->edited);
+	ft_putstr("\nret : ");
+	ft_putnbr(flags->ret);
 	ft_putendl("");
 	ft_putendl("");
 }

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 15:17:11 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 22:09:17 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 22:38:30 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	ft_conv_error(t_flags *flags)
 	flags->raw = ft_strnew(1);
 	flags->raw[0] = flags->conversion;
 	ft_set_priority(flags);
-	flags->malloc_len = flags->width;
+	if (flags->width)
+		flags->malloc_len = flags->width;
+	else
+		flags->malloc_len = 1;
 	flags->edited = (char*)ft_strnew(flags->malloc_len);
 	if (!flags->edited)
 		return;
@@ -26,7 +29,6 @@ void	ft_conv_error(t_flags *flags)
 		ft_edit_raw_left(flags);
 	else
 		ft_edit_raw(flags);
-	//	ft_putendl("conversion format is bad");
 }
 
 int		*ft_init_ascii_tab(int *ascii_tab)

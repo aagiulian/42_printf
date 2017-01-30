@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 17:49:15 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 22:31:23 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(void)
 	i = 3050;
 //	printf("{%-15Z}\n", 123);
 //	ft_printf("{%-15Z}", 123);
-	printf("'{%03c}'\n", 255);
-	ft_printf("'{%03c}'\n", 255);
+	ft_printf("% Zoooo");
+//	ft_printf("'{%03c}'\n", 0);
 	//ft_putendl("");
 	//printf("'{%3c}'\n", 0);
 	//ft_printf("'{%3c}'\n", 0);

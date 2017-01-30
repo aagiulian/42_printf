@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 18:49:58 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 22:24:39 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,21 @@ int		ft_maxtwo(int a, int b)
 int		ft_malloc_len(t_flags *flags)
 {
 	int max;
+	int	sign;
 
+	sign = flags->sign;
+	if (sign == 2)
+		sign = 1;
 	max = ft_maxtwo(flags->width, flags->precision);
 	if (max >= flags->raw_len)
 	{
 		if (max == flags->precision)
-			return (max + flags->sign + flags->space); // si flags->sign == 2 alors on a un malloc + 1
+			return (max + sign + flags->space); // si flags->sign == 2 alors on a un malloc + 1
 		else
 			return (max);
 	}
 	else
-		return (flags->raw_len + flags->sign + flags->space);
+		return ((flags->raw_len) + sign + flags->space);
 }
 
 void	ft_put_sign(t_flags *flags)
@@ -57,7 +61,10 @@ void	ft_put_space(t_flags *flags)
 {
 	flags->edited[flags->index] = ' ';
 	flags->index++;
-	flags->width--;
+	if (flags->width)
+		flags->width--;
+	else
+		flags->precision--;
 	flags->space = -1;
 }
 
@@ -135,7 +142,7 @@ void	ft_edit_raw_left(t_flags *flags)
 	}
 	ft_strncpy(flags->edited + flags->index, flags->raw - flags->sign, flags->raw_len);
 	flags->index += flags->raw_len;
-	if ((flags->conversion == 'x' || flags->conversion == 'X') && \
+	if ((flags->conversion == 'x' || flags->conversion == 'X' || flags->conversion == 'p') && \
 			flags->alternate_form)
 		flags->index -= 2;
 	if (flags->width > 0)

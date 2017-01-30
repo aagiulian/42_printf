@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 17:18:12 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 18:38:56 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 21:02:22 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_memnjoin(char const *s1, char const *s2, unsigned int n1, \
 	unsigned int	j;
 
 	if (!s1)
-		return (ft_memndup(s2, n2));
+		return (ft_memcpy(malloc(n2 + 1), s2, n2));
 	i = 0;
 	j = 0;
 	s_n = ft_strnew(n1 + n2);
@@ -33,7 +33,7 @@ char	*ft_memnjoin(char const *s1, char const *s2, unsigned int n1, \
 		s_n[i++] = *s2++;
 		j++;
 	}
-	free(s1);
+//	free(s1);
 	s_n[i] = '\0';
 	return (s_n);
 }

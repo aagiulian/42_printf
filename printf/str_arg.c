@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 16:14:12 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 21:54:15 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_str_arg(t_flags *flags)
 	ft_str_conversion(flags);
 	if (!(flags->raw))
 	{
+		flags->malloc_len = 6;
 		flags->edited = ft_strdup("(null)");
 		return ;
 	}
