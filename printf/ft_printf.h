@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 17:58:08 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:44:02 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ void			ft_pct_arg(t_flags *flags);
 int				ft_malloc_len(t_flags *flags);
 void			ft_edit_raw(t_flags *flags);
 void			ft_edit_raw_left(t_flags *flags);
+char			*ft_memjoin(char const *s1, char const *s2, unsigned int n1);
+char			*ft_memnjoin(char const *s1, char const *s2, unsigned int n1, unsigned int n2);
+char			*ft_memndup(const char *s1, size_t n);
 void			ft_print_flags(t_flags *flags); // pour test
 
 #endif

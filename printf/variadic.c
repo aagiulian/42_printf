@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 16:44:41 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/30 18:49:58 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	ft_edit_raw(t_flags *flags)
 		flags->precision--;
 		flags->index++;
 	}
-	ft_strcpy(flags->edited + flags->index, flags->raw - flags->sign);
+	ft_memcpy(flags->edited + flags->index, flags->raw - flags->sign, flags->raw_len);
 	(flags->edited)[flags->malloc_len] = '\0';
 //	if (flags->raw)
 //		ft_strdel(&flags->raw);
@@ -133,7 +133,7 @@ void	ft_edit_raw_left(t_flags *flags)
 		flags->precision--;
 		flags->index++;
 	}
-	ft_strcpy(flags->edited + flags->index, flags->raw - flags->sign);
+	ft_strncpy(flags->edited + flags->index, flags->raw - flags->sign, flags->raw_len);
 	flags->index += flags->raw_len;
 	if ((flags->conversion == 'x' || flags->conversion == 'X') && \
 			flags->alternate_form)

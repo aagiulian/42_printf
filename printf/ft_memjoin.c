@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 17:49:15 by agiulian         ###   ########.fr       */
+/*   Created: 2016/11/05 17:18:12 by agiulian          #+#    #+#             */
+/*   Updated: 2017/01/30 18:42:38 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf/ft_printf.h"
-#include <limits.h>
+#include "libft.h"
 
-int	main(void)
+char	*ft_memjoin(char const *s1, char const *s2, unsigned int n1)
 {
-//	char i;
-	int i;
+	char			*s_n;
+	unsigned int	i;
 
-	i = 3050;
-//	printf("{%-15Z}\n", 123);
-//	ft_printf("{%-15Z}", 123);
-	printf("'{%03c}'\n", 255);
-	ft_printf("'{%03c}'\n", 255);
-	//ft_putendl("");
-	//printf("'{%3c}'\n", 0);
-	//ft_printf("'{%3c}'\n", 0);
-	//printf("ft : %i\n", ft_printf("{%3c}", 0));
-	//printf("pr : %i", printf("{%3c}", 0));
-	return (0);
+	if (!s1)
+		return (ft_strdup(s2));
+	i = 0;
+	s_n = ft_strnew(n1 + ft_strlen(s2));
+	if (s_n == NULL)
+		return (NULL);
+	while (i < n1)
+		s_n[i++] = *s1++;
+	while (*s2)
+		s_n[i++] = *s2++;
+	free(s1);
+	s_n[i] = '\0';
+	return (s_n);
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_memndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/13 20:13:47 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 17:45:02 by agiulian         ###   ########.fr       */
+/*   Created: 2016/09/17 19:45:56 by agiulian          #+#    #+#             */
+/*   Updated: 2017/01/30 18:22:54 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_memndup(const char *s1, size_t n)
 {
-	unsigned int i;
+	unsigned int	i;
+	char			*s_n;
 
 	i = 0;
-	while (src[i] && i < len)
+	s_n = ft_strnew(n);
+	if (s_n == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		dst[i] = src[i];
+		s_n[i] = s1[i];
 		i++;
 	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+	s_n[i] = '\0';
+	return (s_n);
 }

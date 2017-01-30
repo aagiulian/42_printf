@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/01/27 22:16:52 by agiulian         ###   ########.fr        #
+#    Updated: 2017/01/30 18:45:31 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,11 @@ SRC = libft/ft_atoi.c \
 	  printf/str_arg.c \
 	  printf/xint_arg.c \
 	  printf/xcapint_arg.c \
-	  printf/pct_arg.c
+	  printf/pct_arg.c \
+	  printf/ft_memndup.c \
+	  printf/ft_memjoin.c \
+	  printf/ft_memnjoin.c
+
 
 HEAD = -Ilibft/includes/ -Iprintf/.
 
