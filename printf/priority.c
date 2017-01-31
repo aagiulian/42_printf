@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 22:26:36 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/31 16:29:37 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	ft_set_priority(t_flags *flags)
 {
-	flags->raw_len = ft_strlen(flags->raw);
+	if (!(flags->conversion == 'c' || flags->conversion == 'C'))
+		flags->raw_len = ft_strlen(flags->raw);
 	if ((flags->conversion == 'x' || flags->conversion == 'X' || \
 				flags->conversion == 'p') && flags->alternate_form)
 		flags->raw_len += 2;
@@ -96,7 +97,7 @@ void	ft_length_priority(t_flags *flags)
 
 	list = "dinouxX";
 	list2 = "cs";
-	list3 = "DOU";
+	list3 = "DOUCS";
 	if (!ft_strchr(list, flags->conversion))
 	{
 		flags->h = 0;

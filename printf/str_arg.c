@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 21:54:15 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/31 11:57:06 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_str_conversion(t_flags *flags)
 	if (flags->l != 1)
 		flags->raw = ft_strdup(va_arg(*(flags->ap), char*));
 	else
-		flags->raw = ft_strdup(va_arg(*(flags->ap), char*));
+		flags->raw = ft_strdup(va_arg(*(flags->ap), wchar_t*));
 }
 
 void	ft_str_arg(t_flags *flags)

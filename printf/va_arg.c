@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 15:17:11 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 22:38:30 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/31 11:40:38 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ void	ft_init_fctptr_table(void (**ptr_tab)(t_flags*))
 		i++;
 	}
 	ptr_tab[37] = &ft_pct_arg;//&pct_arg; // %
-	//	ptr_tab[67] = &c_arg; // C
+	ptr_tab[67] = &ft_char_arg; // C
 	ptr_tab[68] = &ft_int_arg; // D
 	ptr_tab[79] = &ft_oint_arg; // O
-	//	ptr_tab[83] = &S_arg; // S
+	ptr_tab[83] = &ft_str_arg; // S
 	ptr_tab[85] = &ft_uint_arg; // U
 	ptr_tab[88] = &ft_xcapint_arg; // X
 	ptr_tab[99] = &ft_char_arg; // c
