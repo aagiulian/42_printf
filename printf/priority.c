@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/31 16:29:37 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:32:16 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_set_priority(t_flags *flags)
 {
-	if (!(flags->conversion == 'c' || flags->conversion == 'C'))
+	if (!(flags->conversion == 'c' || flags->conversion == 'C' || flags->conversion == 'S'))
 		flags->raw_len = ft_strlen(flags->raw);
 	if ((flags->conversion == 'x' || flags->conversion == 'X' || \
 				flags->conversion == 'p') && flags->alternate_form)

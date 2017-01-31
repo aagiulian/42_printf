@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 16:46:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/31 16:47:25 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/01/31 18:17:30 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ void	ft_handle_unicode(t_flags *flags, unsigned long long i)
 		flags->raw_len = 1;
 	}
 	else if (i < 2048)
+	{
 		ft_double_octet(flags, i);
+	}
 	else if (i < 65536)
 		ft_triple_octet(flags, i);
-	else
+	else if (i >= 65536)
 		ft_quad_octet(flags, i);
 }
 
