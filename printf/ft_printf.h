@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/31 16:48:44 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/02 19:08:59 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ char			*ft_grep_length(char *s, t_flags *flags);
 char			*ft_grep_conversion(char *s, t_flags *flags);
 void			ft_reset_struct(t_flags *flags, va_list *ap);
 void			ft_set_priority(t_flags *flags);
+void			ft_patch(t_flags *flags);
 void			ft_zero_priority(t_flags *flags);
 void			ft_left_over_zero(t_flags *flags);
 void			ft_length_priority(t_flags *flags);

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/02 16:59:54 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/02 19:40:48 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,20 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 
 	len = 0;
 	i = 0;
-	flags->raw = ft_strnew(4);
-	while (save[i])
+	while (save && save[i])
 	{
+		if (!flags->raw)
+			flags->raw = ft_strnew(4);
 		ft_handle_unicode(flags, (int)save[i]);
 		str = ft_memnjoin(str, flags->raw, len, flags->raw_len);
 		len += flags->raw_len;
 		i++;
 	}
-	str[len + 1] = '\0';
-	flags->raw = str;
+	if (len)
+	{
+		str[len + 1] = '\0';
+		flags->raw = str;
+	}
 	flags->raw_len = len;
 }
 
@@ -57,13 +61,6 @@ void	ft_str_arg(t_flags *flags)
 		return ;
 	}
 	ft_set_priority(flags);
-	if (flags->raw_len == 0)
-		flags->precision = 0;
-	if (flags->precision && flags->raw_len)
-	{
-		ft_bzero(flags->raw + flags->precision, flags->raw_len - flags->precision);
-		flags->raw_len = ft_strlen(flags->raw);
-	}
 	flags->malloc_len = ft_malloc_len(flags);
 	flags->edited = (char*)ft_strnew(flags->malloc_len);
 	if (!flags->edited)

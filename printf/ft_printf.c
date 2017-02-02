@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 21:15:16 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/02 19:29:42 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,6 @@ t_flags *flags)
 	return (buf);
 }
 
-/*char	*ft_store(char **s)
-{
-	char	*buffer;
-	int		i;
-
-
-	buffer = (char*)malloc(sizeof(4096 + 1));
-	while (**s && **s != '%' && i < 4096)
-	{
-		buffer[i] = **s;
-		ft_putchar(buffer[i]);
-		(*s)++;
-		i++;
-	}
-	buffer[i] = '\0';
-	return (buffer);
-}*/
-	
 int		ft_printf(const char * restrict format, ...)
 {
 	va_list ap;
@@ -75,7 +57,7 @@ int		ft_printf(const char * restrict format, ...)
 	t_flags	*flags;
 	int		ret;
 
-	if (ft_strlen(format) == 1 && format[0] == '%')
+	if ((ft_strlen(format) == 0) || ft_strlen(format) == 1 && format[0] == '%')
 		return (0);
 	flags = (t_flags*)malloc(sizeof(t_flags));
 	ft_init_fctptr_table(ptr_tab);

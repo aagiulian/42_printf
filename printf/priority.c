@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/31 18:32:16 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/02 19:45:27 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,35 @@
 
 void	ft_set_priority(t_flags *flags)
 {
+	ft_patch(flags);
+	ft_signed_priority(flags);
+	ft_zero_priority(flags);
+	//	ft_length_priority(flags); mis directement dans les arg
+	ft_size_priority(flags);
+}
+
+void	ft_patch(t_flags *flags)
+{
 	if (!(flags->conversion == 'c' || flags->conversion == 'C' || flags->conversion == 'S'))
 		flags->raw_len = ft_strlen(flags->raw);
 	if ((flags->conversion == 'x' || flags->conversion == 'X' || \
 				flags->conversion == 'p') && flags->alternate_form)
 		flags->raw_len += 2;
-	ft_signed_priority(flags);
-	ft_zero_priority(flags);
-	//	ft_length_priority(flags); mis directement dans les arg
-	ft_size_priority(flags);
+	if (flags->conversion == 'c' || flags->conversion == 'C')
+		flags->precision = 0;
+	if (flags->conversion == 's' || flags->conversion == 'S')
+	{
+		if (flags->raw_len == 0 || (flags->precision >= flags->raw_len))
+		{
+			flags->precise = 0;
+			flags->precision = 0;
+		}
+		if (flags->precise && flags->raw_len)
+		{
+			ft_bzero(flags->raw + flags->precision, flags->raw_len - flags->precision);
+			flags->raw_len = ft_strlen(flags->raw);
+		}
+	}
 }
 
 void	ft_zero_priority(t_flags *flags)
