@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/02 19:30:31 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/03 01:29:08 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,11 @@ void	ft_set_hashtag(t_flags *flags)
 }
 void	ft_set_width(t_flags *flags)
 {
+	if (flags->conversion == 'p' && flags->zero_padding)
+	{
+		ft_set_hashtag(flags);
+		flags->alternate_form = 0;
+	}
 	if (flags->sign == 0)
 	{
 		while (flags->width > flags->raw_len && flags->width > flags->precision)

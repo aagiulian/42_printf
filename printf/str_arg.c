@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/02 19:40:48 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/03 01:16:37 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 
 	len = 0;
 	i = 0;
+	if (save && save[i] > 1200000)
+	{
+		flags->ret = -1;
+		return ;
+	}
 	while (save && save[i])
 	{
 		if (!flags->raw)
@@ -29,11 +34,8 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 		len += flags->raw_len;
 		i++;
 	}
-	if (len)
-	{
-		str[len + 1] = '\0';
-		flags->raw = str;
-	}
+	str[len + 1] = '\0';
+	flags->raw = str;
 	flags->raw_len = len;
 }
 
@@ -46,7 +48,8 @@ void	ft_str_conversion(t_flags *flags)
 	else
 	{
 		save = (va_arg(*(flags->ap), wchar_t*));
-		ft_wchar_string(flags, save);
+		if (save)
+			ft_wchar_string(flags, save);
 	}
 }
 
@@ -56,14 +59,13 @@ void	ft_str_arg(t_flags *flags)
 	ft_str_conversion(flags);
 	if (!(flags->raw))
 	{
-		flags->malloc_len = 6;
-		flags->edited = ft_strdup("(null)");
-		return ;
+		flags->raw_len = 6;
+		flags->raw = ft_strdup("(null)");
 	}
 	ft_set_priority(flags);
 	flags->malloc_len = ft_malloc_len(flags);
 	flags->edited = (char*)ft_strnew(flags->malloc_len);
-	if (!flags->edited)
+	if (!flags->edited || flags->ret == -1)
 		return;
 	if (flags->left_adjusting)
 		ft_edit_raw_left(flags);
