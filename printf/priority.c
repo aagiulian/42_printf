@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/03 14:32:16 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/03 15:51:09 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,12 @@ void	ft_zero_priority(t_flags *flags)
 		else if (flags->zero_padding)
 		{
 			flags->precision = flags->width;
+			if (flags->conversion == 'x' && flags->alternate_form)
+				flags->alternate_form = 2;
 			if (flags->precision && (flags->sign || flags->space))
 				flags->precision--;
 		}
 	}
-	//	if ((flags->precision) && ft_strchr(list, flags->conversion))
-	//		flags->zero_padding = 0;
-	//	if (flags->zero_padding && ft_strchr(list,flags->conversion)
 }
 
 void	ft_size_priority(t_flags *flags)
@@ -81,8 +80,6 @@ void	ft_size_priority(t_flags *flags)
 	{
 		if (flags->raw_len >= flags->width)
 			flags->width = 0;
-		//		if (flags->raw_len >= flags->precision) pour i a voir si ca 
-		//			flags->precision = 0;
 		if (flags->sign == 2)
 			flags->raw_len--;
 		if (flags->precise && flags->raw_len == 1 && flags->raw[0] == \
