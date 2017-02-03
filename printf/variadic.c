@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/03 01:29:08 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/03 14:48:25 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,14 @@ int		ft_malloc_len(t_flags *flags)
 	if (max >= flags->raw_len)
 	{
 		if (max == flags->precision)
+		{
+			if (flags->conversion == 'p' || (flags->conversion == 'x' && flags->alternate_form))
+			{
+				flags->raw_len -= 2;
+				return (max + 2);
+			}
 			return (max + sign + flags->space); // si flags->sign == 2 alors on a un malloc + 1
+		}
 		else
 			return (max);
 	}

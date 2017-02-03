@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/03 01:16:37 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/03 15:31:31 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 
 	len = 0;
 	i = 0;
-	if (save && save[i] > 1200000)
+//	if ((int)save[0] == 0)
+	if (!save[len])
 	{
-		flags->ret = -1;
+		flags->raw = ft_strnew(1);
+		flags->raw_len = 0;
 		return ;
 	}
 	while (save && save[i])
