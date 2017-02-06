@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/03 15:36:36 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 18:02:17 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,25 @@ int	main(void)
 	char *test;
 	setlocale(LC_ALL, "");
 //	printf("%2hhS, %hhS\n", 0, L"米米");
-//	printf("printf : %i\n", printf("%hhS, %hhS\n", 0, L"米米"));
-//	ft_printf("%2hhS, %hhS\n", 0, L"米米");
+//	printf("printf : %i\n", printf("%.1S", L"米"));
+//	printf("qwqe%.1C%S", L'米', 0);
+//	printf("ft : %i\n", ft_printf("%.1S", L"米"));
+//	ft_printf("%.4S", L"米");
+//	ft_printf("%2hhS", 0);
+//	ft_printf("%2hhS, %hhS\n", L"米米", 0);
+//	ft_printf("%S", L"米米");
 //	printf("printf : %i\n", ft_printf("%hhS, %hhS\n", 0, L"米米"));
-//	ft_printf("{%12.2s}\n", 0);
+	printf("%hhC\n", 0);
+//	printf("%hhC, %hhC\n", 0, L'米');
+	printf("%hhC\n", 0);
+	ft_printf("%hhC, %hhC\n", 0, L'米');
 //	printf("ptf %i\n", printf("{% S}", L""));
 //	printf("ret = %i", ft_printf("% S", L""));
 //	ft_printf("% S", L"");
 //	ft_printf("%i", printf("%S", L""));
-	ft_printf("%.4S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
-	printf("%.4S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
-	printf("%i", ft_printf("%.4S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B"));
+//	ft_printf("%.4S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	//printf("%.4S\n", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+//	printf("%i", ft_printf("%.4S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B"));
 //	printf("{%05p}\n", 0);
 //	printf("%.5p\n", 0);
 //	ft_printf("%.5p\n", 0);

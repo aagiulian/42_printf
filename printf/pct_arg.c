@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:41:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 16:12:21 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 15:29:14 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static void	ft_pct_conversion(t_flags *flags)
 {
 	flags->raw = (char*)malloc(2);
-	flags->raw = "%";
+	flags->raw[0] = '%';
+	flags->raw[1] = '\0';
 }
 void		ft_pct_arg(t_flags *flags)
 {

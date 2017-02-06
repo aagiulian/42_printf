@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/03 15:44:16 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 16:32:55 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_malloc_len(t_flags *flags)
 				flags->raw_len -= 2;
 				return (max + 2);
 			}
-			return (max + sign + flags->space); // si flags->sign == 2 alors on a un malloc + 1
+			return (max + sign + flags->space);
 		}
 		else
 			return (max);
@@ -134,8 +134,6 @@ void	ft_edit_raw(t_flags *flags)
 	}
 	ft_memcpy(flags->edited + flags->index, flags->raw - flags->sign, flags->raw_len);
 	(flags->edited)[flags->malloc_len] = '\0';
-//	if (flags->raw)
-//		ft_strdel(&flags->raw);
 }
 
 void	ft_edit_raw_left(t_flags *flags)

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/03 01:06:07 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 17:56:37 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_flags *flags)
 	int		count;
 
 	count = 0;
+	buf = NULL;
 	while (*s)
 	{
 		if (*s && *s != '%')
@@ -44,7 +45,12 @@ t_flags *flags)
 			if (flags->ret == -1)
 				return (NULL);
 			if (flags->edited)
+			{
 				buf = ft_memnjoin(buf, flags->edited, flags->ret, flags->malloc_len);
+			//	ft_strdel(&flags->edited);
+			}
+		//	if (flags->raw_len)
+		//		ft_strdel(&flags->raw);
 			flags->ret += flags->malloc_len;
 		}
 	}
@@ -70,7 +76,7 @@ int		ft_printf(const char * restrict format, ...)
 	ft_reset_struct(flags, ap);
 	ret = flags->ret;
 	free(flags);
-	write(1, buf, flags->ret);
+	write(1, buf, ret);
 	ft_strdel(&buf);
 	va_end(ap);
 	return (ret);

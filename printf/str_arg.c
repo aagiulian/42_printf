@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/03 15:53:07 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 17:49:16 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,33 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 	int		len;
 	char	*str;
 	int		i;
+	char	*tmp;
 
 	len = 0;
 	i = 0;
-//	if ((int)save[0] == 0)
 	if (!save[len])
 	{
 		flags->raw = ft_strnew(1);
 		flags->raw_len = 0;
 		return ;
 	}
-	while (save && save[i])
+	while (save && save[i] && (flags->precise == 0 || flags->precision != 0))
 	{
 		if (!flags->raw)
 			flags->raw = ft_strnew(4);
 		ft_handle_unicode(flags, (int)save[i]);
-		str = ft_memnjoin(str, flags->raw, len, flags->raw_len);
-		len += flags->raw_len;
+		if (!flags->precise || (flags->precision -= flags->raw_len) >= 0)
+		{
+			str = ft_memnjoin(str, flags->raw, len, flags->raw_len);
+			len += flags->raw_len;
+		}
+		else
+			flags->raw_len = 0;
 		i++;
 	}
 	str[len + 1] = '\0';
 	flags->raw = str;
+		flags->precision = len;
 	flags->raw_len = len;
 }
 

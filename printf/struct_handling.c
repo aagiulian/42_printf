@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 18:57:44 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/30 20:17:12 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 17:51:42 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,24 @@
 void	ft_reset_struct(t_flags *flags, va_list *ap)
 {
 	flags->ap = ap;
-	flags->left_adjusting = 0; // right is default
-	flags->sign = 0; // could be 1000+ equivalent to 1+
-	flags->sign_put = 0; // a t'on mis le signe ?
+	flags->left_adjusting = 0;
+	flags->sign = 0;
+	flags->sign_put = 0;
 	flags->space = 0;
 	flags->alternate_form = 0;
 	flags->width = 0;
 	flags->zero_padding = 0;
 	flags->precise = 0;
-	flags->precision = 0; // Beware here -1 stands for default, 0 is default for d,i,o,u,x but means no decimal . for e,E,f
+	flags->precision = 0;
 	flags->h = 0;
 	flags->l = 0;
 	flags->j = 0;
 	flags->z = 0;
 	flags->conversion = '0';
-//	ft_strdel(flags->raw);
 	flags->raw = NULL;
 	flags->raw_len = 0;
 	flags->malloc_len = 0;
-//	ft_strdel(flags->edited);
-	flags->edited = NULL;//
+	flags->edited = NULL;
 	flags->index = 0;
 }
 

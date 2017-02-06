@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/02/02 18:24:34 by agiulian         ###   ########.fr        #
+#    Updated: 2017/02/06 15:36:18 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,7 @@ ECHO = printf
 
 OBJECT = $(SRC:.c=.o)
 
-CFLAGS = $(HEAD) -O3
+CFLAGS = $(HEAD) -O3 -g
 
 %.o	:	%.c 
 		@$(CC) $(CFLAGS) -o $@ -c $<&& $(ECHO) "\033[31m["$@"] \n\033[0m"
