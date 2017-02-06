@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 17:56:37 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 20:32:49 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ t_flags *flags)
 			if (flags->edited)
 			{
 				buf = ft_memnjoin(buf, flags->edited, flags->ret, flags->malloc_len);
-			//	ft_strdel(&flags->edited);
+				ft_strdel(&flags->edited);
 			}
-		//	if (flags->raw_len)
-		//		ft_strdel(&flags->raw);
+			if (flags->raw_len && flags->raw)
+				ft_strdel(&flags->raw);
 			flags->ret += flags->malloc_len;
 		}
 	}
@@ -67,7 +67,8 @@ int		ft_printf(const char * restrict format, ...)
 
 	if ((ft_strlen(format) == 0) || ft_strlen(format) == 1 && format[0] == '%')
 		return (0);
-	flags = (t_flags*)malloc(sizeof(t_flags));
+	if (!(flags = (t_flags*)malloc(sizeof(t_flags))))
+			return (-1);
 	ft_init_fctptr_table(ptr_tab);
 	flags->ret = 0;
 	va_start(ap, format);

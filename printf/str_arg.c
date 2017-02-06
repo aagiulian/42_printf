@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 17:49:16 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 20:35:39 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 	int		len;
 	char	*str;
 	int		i;
-	char	*tmp;
 
 	len = 0;
 	i = 0;
-	if (!save[len])
+	str = NULL;
+	if (!save[len] || (flags->precise && flags->precision == 0))
 	{
-		flags->raw = ft_strnew(1);
+		flags->raw = ft_strnew(0);
 		flags->raw_len = 0;
 		return ;
 	}
-	while (save && save[i] && (flags->precise == 0 || flags->precision != 0))
+	while (save && save[i] && (flags->precise == 0 || flags->precision > 0))
 	{
 		if (!flags->raw)
 			flags->raw = ft_strnew(4);
@@ -37,13 +37,11 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 			str = ft_memnjoin(str, flags->raw, len, flags->raw_len);
 			len += flags->raw_len;
 		}
-		else
-			flags->raw_len = 0;
 		i++;
 	}
-	str[len + 1] = '\0';
+	free(flags->raw);
 	flags->raw = str;
-		flags->precision = len;
+	flags->precision = len;
 	flags->raw_len = len;
 }
 
@@ -72,7 +70,7 @@ void	ft_str_arg(t_flags *flags)
 	}
 	ft_set_priority(flags);
 	flags->malloc_len = ft_malloc_len(flags);
-	flags->edited = (char*)ft_strnew(flags->malloc_len);
+	flags->edited = ft_strnew(flags->malloc_len);
 	if (!flags->edited || flags->ret == -1)
 		return;
 	if (flags->left_adjusting)

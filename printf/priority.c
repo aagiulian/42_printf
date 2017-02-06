@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/03 15:51:09 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 19:45:16 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_set_priority(t_flags *flags)
 	ft_patch(flags);
 	ft_signed_priority(flags);
 	ft_zero_priority(flags);
-	//	ft_length_priority(flags); mis directement dans les arg
 	ft_size_priority(flags);
 }
 

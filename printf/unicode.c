@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 16:46:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/02 16:59:51 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 19:45:57 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	ft_triple_octet(t_flags *flags, unsigned long long i)
 	i = tampon;
 	unicode += (i & 0xFC0) << 2;
 	unicode += i & 0x3F;
-	flags->raw_len = 3;
 	flags->raw[0] = unicode >> 16;
 	flags->raw[1] = (unicode >> 8) & 0xFF;
 	flags->raw[2] = unicode & 0xFF;

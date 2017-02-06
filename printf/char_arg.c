@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/31 16:50:20 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 19:58:38 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ void	ft_char_conversion(t_flags *flags)
 	unsigned long long i;
 
 	flags->raw = ft_strnew(4);
+	if (!flags->raw)
+		return;
 	if (flags->l != 1)
 		c = (va_arg(*(flags->ap), int));
 	else
 	{
 		i = (va_arg(*(flags->ap), wchar_t));
 		ft_handle_unicode(flags, i);
-		return ;
+		return;
 	}
 	flags->raw_len = 1;
 	if (!c)

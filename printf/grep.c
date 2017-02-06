@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 14:51:28 by agiulian          #+#    #+#             */
-/*   Updated: 2017/01/27 22:10:17 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 19:44:18 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_grep_all(char *s, t_flags *flags, va_list *ap)
 {
-	ft_reset_struct(flags, ap);// ici on veut probablement reset la structure
+	ft_reset_struct(flags, ap);
 	s = ft_grep_flags(s, flags);
 	s = ft_grep_width(s, flags);
 	s = ft_grep_precision(s, flags);
@@ -27,7 +27,7 @@ char	*ft_grep_flags(char *s, t_flags *flags)
 {
 	while (*s == '-' || *s == '+' || *s == ' ' || *s == '#' || *s == '0')
 	{
-		if (*s == '-')// PROBABLY BETTER SET TO 1 INSTEAD OF INCREMENTING
+		if (*s == '-')
 			flags->left_adjusting++;
 		else if (*s == '+')
 			flags->sign = 1;
