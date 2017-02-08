@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 14:51:28 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 17:19:27 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 18:41:38 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,28 @@ char	*ft_grep_width(char *s, t_flags *flags)
 		flags->width += *s - '0';
 		s++;
 	}
+	s = ft_grep_flags(s, flags);
+	if (*s == '*')
+	{
+		flags->width = va_arg((*flags->ap), int);
+		if (flags->width < 0)
+		{
+			flags->width = -flags->width;
+			flags->left_adjusting++;
+		}
+		s++;
+		s = ft_grep_flags(s, flags);
+		if (*s >= '0' && *s <= '9')
+		{
+			flags->width = 0;
+			while (*s >= '0' && *s <= '9')
+			{
+				flags->width *= 10;
+				flags->width += *s - '0';
+				s++;
+			}
+		}
+	}
 	return (s);
 }
 
@@ -46,8 +68,19 @@ char	*ft_grep_precision(char *s, t_flags *flags)
 {
 	if (*s == '.')
 	{
-		flags->precise = 1;
 		s++;
+		flags->precise = 1;
+		if (*s == '*')
+		{
+			flags->precision = va_arg((*flags->ap), int);
+			if (flags->precision < 0)
+			{
+				flags->precise = 0;
+				flags->precision = 0;
+			}
+			s++;
+			return (s);
+		}
 		while (*s >= '0' && *s <= '9')
 		{
 			flags->precision *= 10;
@@ -83,8 +116,12 @@ char	*ft_grep_length(char *s, t_flags *flags)
 	else if (*s == 'z')
 		flags->z++;
 	else
+	{
+		s = ft_grep_flags(s, flags);
 		return (s);
-	return (s + 1);
+	}
+	s = ft_grep_flags(s + 1, flags);
+	return (s);
 }
 
 char	*ft_grep_conversion(char *s, t_flags *flags)

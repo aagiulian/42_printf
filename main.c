@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 17:43:28 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 18:35:35 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ int	main(void)
 //	ft_putendl("");
 //	printf("%.1iC\n", L'±');
 //	ft_printf("%.1C\n", L'±');
-	printf("%hX", 500000);
+	ft_printf("{%-5+d}\n", 42);
+	printf("{%*-5d}\n", 10, 42);
+	printf("ret = %i\n", printf("{%.*s}", -5, "42"));
+	printf("ftp = %i\n", ft_printf("{%.*s}", -5, "42"));
 	return (0);
 }
