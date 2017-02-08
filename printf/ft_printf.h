@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/02 19:08:59 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 14:53:00 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,24 @@ typedef struct	s_flags
 	int			alternate_form;
 	int			width;
 	int			zero_padding;
-	int			precision; // rajoute des 0 pour tous les int, tronque chaine mais pas int
+	int			precision;
 	int			precise;
 	int			h;
 	int			l;
 	int			j;
 	int			z;
 	char		conversion;
-	char		*raw; // attention faudra penser a le free
+	char		*raw;
 	int			raw_len;
 	int			malloc_len;
-	char		*edited; // pareil
+	char		*edited;
 	int			index;
 	int			ret;
 }				t_flags;
 
 int				ft_printf(const char *restrict format, ...);
-//char	*ft_store(char **s);
+char			*ft_strparse(char *s, va_list *ap, void (**ptr_tab)(t_flags*),\
+		t_flags *flags);
 char			*ft_grep_all(char *s, t_flags *flags, va_list *ap);
 char			*ft_grep_flags(char *s, t_flags *flags);
 char			*ft_grep_width(char *s, t_flags *flags);
@@ -61,9 +62,7 @@ void			ft_left_over_zero(t_flags *flags);
 void			ft_length_priority(t_flags *flags);
 void			ft_signed_priority(t_flags *flags);
 void			ft_size_priority(t_flags *flags);
-void			ft_arg_tab_initialize(t_flags *flags); // plus utilisee
 void			ft_init_fctptr_table(void (**ptr_tab)(t_flags*));
-void			ft_access_ptrtab(t_flags *flags, void (**ptr_tab)(t_flags*));
 void			ft_char_arg(t_flags *flags);
 void			ft_int_arg(t_flags *flags);
 void			ft_uint_arg(t_flags *flags);
@@ -76,12 +75,12 @@ int				ft_malloc_len(t_flags *flags);
 void			ft_edit_raw(t_flags *flags);
 void			ft_edit_raw_left(t_flags *flags);
 char			*ft_memjoin(char const *s1, char const *s2, unsigned int n1);
-char			*ft_memnjoin(char const *s1, char const *s2, unsigned int n1, unsigned int n2);
-char			*ft_memndup(const char *s1, size_t n);
+char			*ft_memnjoin(char const *s1, char const *s2, unsigned int n1, \
+		unsigned int n2);
 void			ft_handle_unicode(t_flags *flags, unsigned long long i);
 void			ft_double_octet(t_flags *flags, unsigned long long i);
 void			ft_triple_octet(t_flags *flags, unsigned long long i);
 void			ft_quad_octet(t_flags *flags, unsigned long long i);
-void			ft_print_flags(t_flags *flags); // pour test
+void			ft_print_flags(t_flags *flags);
 
 #endif

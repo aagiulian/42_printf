@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 15:17:11 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 19:53:02 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 20:54:26 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_conv_error(t_flags *flags)
 		flags->malloc_len = 1;
 	flags->edited = (char*)ft_strnew(flags->malloc_len);
 	if (!flags->edited)
-		return;
+		return ;
 	if (flags->left_adjusting)
 		ft_edit_raw_left(flags);
 	else

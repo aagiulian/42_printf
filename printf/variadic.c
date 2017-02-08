@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 20:22:22 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 21:09:34 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int		ft_malloc_len(t_flags *flags)
 	{
 		if (max == flags->precision)
 		{
-			if (flags->conversion == 'p' || (flags->conversion == 'x' && flags->alternate_form == 1))
+			if (flags->conversion == 'p' || (flags->conversion == 'x' \
+						&& flags->alternate_form == 1))
 			{
 				flags->raw_len -= 2;
 				return (max + 2);
@@ -77,23 +78,26 @@ void	ft_put_space(t_flags *flags)
 
 void	ft_fill_width(t_flags *flags)
 {
-		if (flags->zero_padding)
-			(flags->edited)[flags->index] = '0';
-		else
-			(flags->edited)[flags->index] = ' ';
-		flags->index++;
-		flags->width--;
+	if (flags->zero_padding)
+		(flags->edited)[flags->index] = '0';
+	else
+		(flags->edited)[flags->index] = ' ';
+	flags->index++;
+	flags->width--;
 }
 
 void	ft_set_hashtag(t_flags *flags)
 {
-	if (flags->conversion == 'x' || flags->conversion == 'X' || flags->conversion == 'p')
+	if (flags->conversion == 'x' || flags->conversion == 'X' || \
+			flags->conversion == 'p')
 	{
 		flags->edited[flags->index] = '0';
-		flags->edited[flags->index + 1] = (flags->conversion == 'X') ? 'X' : 'x';
+		flags->edited[flags->index + 1] = (flags->conversion == \
+				'X') ? 'X' : 'x';
 		flags->index += 2;
 	}
 }
+
 void	ft_set_width(t_flags *flags)
 {
 	if (flags->conversion == 'p' && flags->zero_padding)
@@ -109,11 +113,11 @@ void	ft_set_width(t_flags *flags)
 	if (flags->sign)
 	{
 		while (flags->width - 1 + flags->sign_put > flags->raw_len && \
-				flags->width - 1 + flags->sign_put  > flags->precision)
+				flags->width - 1 + flags->sign_put > flags->precision)
 			ft_fill_width(flags);
 	}
 }
-	
+
 void	ft_edit_raw(t_flags *flags)
 {
 	if (flags->sign > 0 && flags->zero_padding)
@@ -132,7 +136,8 @@ void	ft_edit_raw(t_flags *flags)
 		flags->precision--;
 		flags->index++;
 	}
-	ft_memcpy(flags->edited + flags->index, flags->raw - flags->sign, flags->raw_len);
+	ft_memcpy(flags->edited + flags->index, flags->raw - flags->sign, \
+			flags->raw_len);
 	(flags->edited)[flags->malloc_len] = '\0';
 }
 
@@ -150,9 +155,11 @@ void	ft_edit_raw_left(t_flags *flags)
 		flags->precision--;
 		flags->index++;
 	}
-	ft_memcpy(flags->edited + flags->index, flags->raw - flags->sign, flags->raw_len);
+	ft_memcpy(flags->edited + flags->index, flags->raw - flags->sign, \
+			flags->raw_len);
 	flags->index += flags->raw_len;
-	if ((flags->conversion == 'x' || flags->conversion == 'X' || flags->conversion == 'p') && \
+	if ((flags->conversion == 'x' || flags->conversion == 'X' || \
+				flags->conversion == 'p') && \
 			flags->alternate_form)
 		flags->index -= 2;
 	if (flags->width > 0)

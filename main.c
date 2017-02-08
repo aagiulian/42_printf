@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 20:02:05 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 14:01:21 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 //	printf("printf : %i\n", printf("%.1S", L"米"));
 //	printf("qwqe%.1C%S", L'米', 0);
 //	printf("ft : %i\n", ft_printf("%.1S", L"米"));
-	ft_printf("%.1S", L"米");
+//	ft_printf("%.1S", L"米");
 	ft_printf("%2hhS", 0);	
 	ft_printf("%2hhS, %hhS\n", L"米米", 0);
 	ft_printf("%S", L"米米");
@@ -69,7 +69,5 @@ int	main(void)
 //	ft_putendl("");
 //	printf("%.1iC\n", L'±');
 	ft_printf("%.1C\n", L'±');
-	while (i = 1)
-		;
 	return (0);
 }

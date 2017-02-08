@@ -6,24 +6,17 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 19:45:16 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 21:06:59 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_set_priority(t_flags *flags)
-{
-	ft_patch(flags);
-	ft_signed_priority(flags);
-	ft_zero_priority(flags);
-	ft_size_priority(flags);
-}
-
 void	ft_patch(t_flags *flags)
 {
-	if (!(flags->conversion == 'c' || flags->conversion == 'C' || flags->conversion == 'S'))
-				flags->raw_len = ft_strlen(flags->raw);
+	if (!(flags->conversion == 'c' || flags->conversion == 'C' || \
+				flags->conversion == 'S'))
+		flags->raw_len = ft_strlen(flags->raw);
 	if (flags->conversion == 'p' && flags->precise && flags->raw[0] == '0')
 		flags->raw_len = 0;
 	if ((flags->conversion == 'x' || flags->conversion == 'X' || \
@@ -40,7 +33,8 @@ void	ft_patch(t_flags *flags)
 		}
 		if (flags->precise && flags->raw_len)
 		{
-			ft_bzero(flags->raw + flags->precision, flags->raw_len - flags->precision);
+			ft_bzero(flags->raw + flags->precision, flags->raw_len - \
+					flags->precision);
 			flags->raw_len = ft_strlen(flags->raw);
 		}
 	}

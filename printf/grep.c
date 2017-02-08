@@ -6,22 +6,11 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 14:51:28 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 19:44:18 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 20:51:31 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_grep_all(char *s, t_flags *flags, va_list *ap)
-{
-	ft_reset_struct(flags, ap);
-	s = ft_grep_flags(s, flags);
-	s = ft_grep_width(s, flags);
-	s = ft_grep_precision(s, flags);
-	s = ft_grep_length(s, flags);
-	s = ft_grep_conversion(s, flags);
-	return (s);
-}
 
 char	*ft_grep_flags(char *s, t_flags *flags)
 {

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 19:53:35 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/06 21:09:48 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_int_conversion(t_flags *flags)
 	else if (flags->l == 1)
 		flags->raw = ft_itoabase((long)va_arg(*(flags->ap), long), 10);
 	else if (flags->l == 2)
-		flags->raw = ft_itoabase((long long)va_arg(*(flags->ap), long long), 10);
+		flags->raw = ft_itoabase((long long)va_arg(*(flags->ap), long long), \
+				10);
 	else if (flags->j == 1)
 		flags->raw = ft_itoabase((intmax_t)va_arg(*(flags->ap), intmax_t), 10);
 	else if (flags->z == 1)
