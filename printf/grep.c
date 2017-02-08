@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 14:51:28 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 20:51:31 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 17:19:27 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ char	*ft_grep_conversion(char *s, t_flags *flags)
 {
 	if (*s == 's' || *s == 'S' || *s == 'p' || *s == 'd' || *s == 'D' || \
 			*s == 'i' || *s == 'o' || *s == 'O' || *s == 'u' || *s == 'U' \
-			|| *s == 'x' || *s == 'X' || *s == 'c' || *s == 'C' || *s == '%')
+			|| *s == 'x' || *s == 'X' || *s == 'c' || *s == 'C' || *s == 'b' \
+			|| *s == 'B' || *s == '%')
 		flags->conversion = *s;
 	else
 		flags->conversion = *s;

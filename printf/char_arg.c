@@ -6,13 +6,13 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 16:01:39 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 17:22:08 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_char_conversion(t_flags *flags)
+static void	ft_char_conversion(t_flags *flags)
 {
 	char				c;
 	unsigned long long	i;
@@ -38,7 +38,7 @@ void	ft_char_conversion(t_flags *flags)
 		flags->raw[0] = c;
 }
 
-void	ft_char_arg(t_flags *flags)
+void		ft_char_arg(t_flags *flags)
 {
 	ft_length_priority(flags);
 	ft_char_conversion(flags);

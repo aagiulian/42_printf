@@ -6,13 +6,13 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 20:49:52 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 17:22:55 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_oint_conversion(t_flags *flags)
+static void	ft_oint_conversion(t_flags *flags)
 {
 	if (!flags->h && !flags->l && !flags->j && !flags->j && !flags->z)
 		flags->raw = ft_uitoabase(va_arg(*(flags->ap), unsigned int), 8);
@@ -35,7 +35,7 @@ void	ft_oint_conversion(t_flags *flags)
 		flags->raw = ft_uitoabase((size_t)va_arg(*(flags->ap), size_t), 8);
 }
 
-void	ft_oint_arg(t_flags *flags)
+void		ft_oint_arg(t_flags *flags)
 {
 	ft_length_priority(flags);
 	ft_oint_conversion(flags);

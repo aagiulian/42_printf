@@ -6,13 +6,13 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 20:54:48 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 17:23:48 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_xcapint_conversion(t_flags *flags)
+static void	ft_xcapint_conversion(t_flags *flags)
 {
 	if (!flags->h && !flags->l && !flags->j && !flags->j && !flags->z)
 		flags->raw = ft_uitoabase_cap(va_arg(*(flags->ap), unsigned int), 16);
@@ -35,7 +35,7 @@ void	ft_xcapint_conversion(t_flags *flags)
 		flags->raw = ft_uitoabase_cap(va_arg(*(flags->ap), size_t), 16);
 }
 
-void	ft_xcapint_arg(t_flags *flags)
+void		ft_xcapint_arg(t_flags *flags)
 {
 	ft_xcapint_conversion(flags);
 	if (!(ft_strcmp(flags->raw, "0")))

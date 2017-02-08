@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 18:13:57 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 21:06:59 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 17:43:41 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_zero_priority(t_flags *flags)
 {
 	char	*list;
 
-	list = "diouxX";
+	list = "diobBuxX";
 	if (flags->zero_padding && flags->left_adjusting)
 		flags->zero_padding = 0;
 	if (ft_strchr(list, flags->conversion))
@@ -66,7 +66,7 @@ void	ft_size_priority(t_flags *flags)
 {
 	char	*list;
 
-	list = "dioOuxX";
+	list = "dioObBuxX";
 	if (flags->conversion == '%')
 		flags->precision = 0;
 	if (ft_strchr(list, flags->conversion))
@@ -107,9 +107,9 @@ void	ft_length_priority(t_flags *flags)
 	char	*list2;
 	char	*list3;
 
-	list = "dinouxX";
+	list = "dinobux";
 	list2 = "cs";
-	list3 = "DOUCS";
+	list3 = "DBOUCS";
 	if (!ft_strchr(list, flags->conversion))
 	{
 		flags->h = 0;

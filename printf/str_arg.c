@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 16:54:18 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 17:21:29 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		ft_wchar_string(t_flags *flags, wchar_t *save)
 	ft_split(str, flags, len);
 }
 
-void		ft_str_conversion(t_flags *flags)
+static void	ft_str_conversion(t_flags *flags)
 {
 	wchar_t	*save;
 

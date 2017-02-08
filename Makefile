@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/02/08 17:01:31 by agiulian         ###   ########.fr        #
+#    Updated: 2017/02/08 17:25:03 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,6 +95,7 @@ SRC = libft/ft_atoi.c \
 	  printf/char_arg.c \
 	  printf/int_arg.c \
 	  printf/uint_arg.c \
+	  printf/bint_arg.c \
 	  printf/oint_arg.c \
 	  printf/str_arg.c \
 	  printf/xint_arg.c \
