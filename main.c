@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 14:01:21 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 16:13:30 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ int	main(void)
 	ft_printf("%.0p, %.p\n", 0, 0);
 //	printf("{%#.o}\n", 1);
 	ft_printf("{%#.o}\n", 1);
-
+	printf("ret = %i\n", printf("%p", 0));
+	ft_printf("%p", 0);
+	printf("%C\n", 1543);
 //	printf("%i ptf", printf("%.0p\n", 0));
 //	printf("%i ptf", ft_printf("%.0p\n", 0));
 	ft_printf("%.0p\n", 0);

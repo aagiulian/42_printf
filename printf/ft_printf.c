@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 14:47:04 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 16:01:07 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int		ft_printf(const char *restrict format, ...)
 	t_flags	*flags;
 	int		ret;
 
-	if ((ft_strlen(format) == 0) || (ft_strlen(format) == 1 && format[0] == '%'))
+	if ((ft_strlen(format) == 0) || (ft_strlen(format) == 1 && \
+				format[0] == '%'))
 		return (0);
 	if (!(flags = (t_flags*)malloc(sizeof(t_flags))))
 		return (-1);

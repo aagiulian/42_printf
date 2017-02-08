@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 16:46:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/06 19:45:57 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 16:07:56 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_handle_unicode(t_flags *flags, unsigned long long i)
 {
+	if (i < 0 || i > 128172)
+	{
+		flags->ret = -1;
+		return ;
+	}
 	if (i == 0)
 	{
 		flags->precision = 0;
