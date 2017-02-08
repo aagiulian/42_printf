@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 14:53:00 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 16:57:14 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ void			ft_xint_arg(t_flags *flags);
 void			ft_xcapint_arg(t_flags *flags);
 void			ft_pct_arg(t_flags *flags);
 int				ft_malloc_len(t_flags *flags);
+void			ft_put_sign(t_flags *flags);
+void			ft_put_space(t_flags *flags);
+void			ft_fill_width(t_flags *flags);
+void			ft_set_hashtag(t_flags *flags);
+void			ft_set_width(t_flags *flags);
 void			ft_edit_raw(t_flags *flags);
 void			ft_edit_raw_left(t_flags *flags);
 char			*ft_memjoin(char const *s1, char const *s2, unsigned int n1);

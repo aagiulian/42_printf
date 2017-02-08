@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 20:50:37 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 16:18:22 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 16:20:59 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static char	*ft_split(char *buf, t_flags *flags)
 	flags->ret += flags->malloc_len;
 	return (buf);
 }
+
 static char	*ft_split_second(char **s, char *buf, t_flags *flags)
 {
 	buf = ft_memnjoin(buf, *s, flags->ret, ft_strchr(*s, '%') - *s);

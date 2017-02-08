@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/02/08 14:23:30 by agiulian         ###   ########.fr        #
+#    Updated: 2017/02/08 17:01:31 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,7 @@ SRC = libft/ft_atoi.c \
 	  libft/ft_uitoabase.c \
 	  libft/ft_uitoabase_cap.c \
 	  printf/ft_printf.c \
-	  printf/variadic.c \
+	  printf/utility.c \
 	  printf/va_arg.c \
 	  printf/priority.c \
 	  printf/struct_handling.c \
@@ -100,6 +100,7 @@ SRC = libft/ft_atoi.c \
 	  printf/xint_arg.c \
 	  printf/xcapint_arg.c \
 	  printf/pct_arg.c \
+	  printf/flags.c \
 	  printf/ft_memjoin.c \
 	  printf/ft_memnjoin.c \
 	  printf/parse.c \
@@ -112,7 +113,7 @@ ECHO = printf
 
 OBJECT = $(SRC:.c=.o)
 
-CFLAGS = $(HEAD) -O3 -g
+CFLAGS = $(HEAD) -O3 -Wall -Werror -Wextra
 
 %.o	:	%.c 
 		@$(CC) $(CFLAGS) -o $@ -c $<&& $(ECHO) "\033[31m["$@"] \n\033[0m"

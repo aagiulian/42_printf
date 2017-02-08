@@ -6,13 +6,21 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:45:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 16:02:20 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/08 16:54:18 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_wchar_string(t_flags *flags, wchar_t *save)
+static void	ft_split(char *str, t_flags *flags, int len)
+{
+	ft_strdel(&flags->raw);
+	flags->raw = str;
+	flags->precision = len;
+	flags->raw_len = len;
+}
+
+void		ft_wchar_string(t_flags *flags, wchar_t *save)
 {
 	int		len;
 	char	*str;
@@ -24,7 +32,6 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 	if (!save[len] || (flags->precise && flags->precision == 0))
 	{
 		flags->raw = ft_strnew(1);
-		flags->raw_len = 0;
 		return ;
 	}
 	while (save && save[i] && (flags->precise == 0 || flags->precision > 0))
@@ -39,13 +46,10 @@ void	ft_wchar_string(t_flags *flags, wchar_t *save)
 		}
 		i++;
 	}
-	free(flags->raw);
-	flags->raw = str;
-	flags->precision = len;
-	flags->raw_len = len;
+	ft_split(str, flags, len);
 }
 
-void	ft_str_conversion(t_flags *flags)
+void		ft_str_conversion(t_flags *flags)
 {
 	wchar_t	*save;
 
@@ -59,7 +63,7 @@ void	ft_str_conversion(t_flags *flags)
 	}
 }
 
-void	ft_str_arg(t_flags *flags)
+void		ft_str_arg(t_flags *flags)
 {
 	ft_length_priority(flags);
 	ft_str_conversion(flags);
