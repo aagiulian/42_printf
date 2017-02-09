@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 16:46:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 16:26:00 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/09 14:47:42 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_handle_unicode(t_flags *flags, unsigned long long i)
 {
-	if (i > 128172)
+	if (i > 128172 || (MB_CUR_MAX == 1 && i > 255))
 	{
 		flags->ret = -1;
 		return ;
@@ -25,7 +25,7 @@ void	ft_handle_unicode(t_flags *flags, unsigned long long i)
 		flags->raw[0] = '\0';
 		flags->raw_len = 1;
 	}
-	if (i < 128)
+	if (i < 128 || MB_CUR_MAX == 1)
 	{
 		flags->raw[0] = i;
 		flags->raw_len = 1;
