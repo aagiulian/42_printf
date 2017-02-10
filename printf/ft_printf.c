@@ -6,19 +6,27 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/10 01:03:59 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 01:44:57 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static void	ft_free_stuff(char **buf, t_flags *flags)
+{
+	ft_strdel(buf);
+	if (flags->copy == 1)
+		ft_strdel(&flags->save);
+	free(flags);
+
+}
 int		ft_printf(const char *restrict format, ...)
 {
 	va_list ap;
 	char	*buf;
 	void	(*ptr_tab[128])(t_flags*);
-	t_flags	*flags;
 	int		ret;
+	t_flags	*flags;
 
 	if ((ft_strlen(format) == 0) || (ft_strlen(format) == 1 && \
 				format[0] == '%'))
@@ -28,13 +36,12 @@ int		ft_printf(const char *restrict format, ...)
 	ft_init_fctptr_table(ptr_tab);
 	flags->ret = 0;
 	va_start(ap, format);
-	buf = ft_strparse((char*)format, &ap, ptr_tab, flags);
-	ft_reset_struct(flags, &ap);
-	ret = flags->ret;
-	free(flags);
+	ft_control_color((char*)format, flags);
+	buf = ft_strparse(flags->s, &ap, ptr_tab, flags);
 	if (flags->ret > 0)
-		write(1, buf, ret);
-	ft_strdel(&buf);
+		write(1, buf, flags->ret);
+	ret = flags->ret;
+	ft_free_stuff(&buf, flags);
 	va_end(ap);
 	return (ret);
 }

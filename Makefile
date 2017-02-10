@@ -6,7 +6,7 @@
 #    By: agiulian <arthur.giuliano@student.42.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/17 22:23:16 by agiulian          #+#    #+#              #
-#    Updated: 2017/02/08 17:25:03 by agiulian         ###   ########.fr        #
+#    Updated: 2017/02/10 01:25:57 by agiulian         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,7 @@ SRC = libft/ft_atoi.c \
 	  printf/ft_memjoin.c \
 	  printf/ft_memnjoin.c \
 	  printf/parse.c \
+	  printf/color.c \
 	  printf/unicode.c
 
 
@@ -114,7 +115,7 @@ ECHO = printf
 
 OBJECT = $(SRC:.c=.o)
 
-CFLAGS = $(HEAD) -O3 -Wall -Werror -Wextra
+CFLAGS = $(HEAD) -O3 -g -Wall -Werror -Wextra
 
 %.o	:	%.c 
 		@$(CC) $(CFLAGS) -o $@ -c $<&& $(ECHO) "\033[31m["$@"] \n\033[0m"

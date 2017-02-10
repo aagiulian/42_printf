@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/10 00:48:25 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 01:37:17 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ typedef struct	s_flags
 	char		*edited;
 	int			index;
 	int			ret;
-	char		*str;
+	char		*save;
+	char		*s;
+	int			copy;
 }				t_flags;
 
 int				ft_printf(const char *restrict format, ...);
@@ -96,6 +98,7 @@ void			ft_handle_unicode_char(t_flags *flags, unsigned long long i);
 void			ft_double_octet(t_flags *flags, unsigned long long i);
 void			ft_triple_octet(t_flags *flags, unsigned long long i);
 void			ft_quad_octet(t_flags *flags, unsigned long long i);
-void			ft_print_flags(t_flags *flags);
+void			ft_control_color(char *format, t_flags *flags);
+void			ft_print_flags(t_flags *flags); // a enlever
 
 #endif

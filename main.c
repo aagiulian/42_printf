@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 16:46:48 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 18:35:35 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 01:08:03 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,15 @@ int	main(void)
 	char *test;
 	
 	i = 1;
-	setlocale(LC_ALL, "");
+//	setlocale(LC_ALL, "");
+//	printf("%C%i\n", 257);
+	ft_printf("aa{red}%s{ec}test{blu}lol ca marche{ec}ee\n", "on test le rouge");
+	printf("ptf = %i", printf("%C\n", 3052));
+	ft_printf("ptf = %i", ft_printf("%C\n", 3052));
+	printf("%C\n", 3052);
+	ft_printf("%C\n", 3052);
+//	ft_printf("ftf = %i", ft_printf("{red}%s{ec}\n", "on test le rouge"));
+//	ft_printf("ftf = %i", printf("{red}%s{ec}\n", "on test le rouge"));
 //	printf("%2hhS, %hhS\n", 0, L"米米");
 //	printf("printf : %i\n", printf("%.1S", L"米"));
 //	printf("qwqe%.1C%S", L'米', 0);
@@ -71,9 +79,16 @@ int	main(void)
 //	ft_putendl("");
 //	printf("%.1iC\n", L'±');
 //	ft_printf("%.1C\n", L'±');
-	ft_printf("{%-5+d}\n", 42);
-	printf("{%*-5d}\n", 10, 42);
-	printf("ret = %i\n", printf("{%.*s}", -5, "42"));
-	printf("ftp = %i\n", ft_printf("{%.*s}", -5, "42"));
+	
+//	ft_putstr(" \x1B[36mlol");
+//	ft_printf("{%-5+d}\n", 42);
+//	printf("{%*-5d}\n", 10, 42);
+//	printf("ret = %i\n", printf("{%.*s}", -5, "42"));
+//	printf("ftp = %i\n", ft_printf("{%.*s}", -5, "42"));
+//	ft_printf("%S\n", "");
+//	printf("%S\n", "");
+//	printf("%i", printf("%S\n", ""));
+//	printf("%i", ft_printf("%S\n", ""));
+	 ft_printf("%C\\n", 15000);
 	return (0);
 }
