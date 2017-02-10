@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 16:01:07 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 01:03:59 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int		ft_printf(const char *restrict format, ...)
 	ft_init_fctptr_table(ptr_tab);
 	flags->ret = 0;
 	va_start(ap, format);
-	if ((!(buf = ft_strparse((char*)format, &ap, ptr_tab, flags))))
-		return (-1);
+	buf = ft_strparse((char*)format, &ap, ptr_tab, flags);
 	ft_reset_struct(flags, &ap);
 	ret = flags->ret;
 	free(flags);
-	write(1, buf, ret);
+	if (flags->ret > 0)
+		write(1, buf, ret);
 	ft_strdel(&buf);
 	va_end(ap);
 	return (ret);

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 17:28:07 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 00:48:25 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,14 @@
 # include <stdio.h>
 # include <inttypes.h>
 
-# define DEBUG printf("Line: %i, File : %s.\n",__LINE__, __FILE__);
+# define RED "\x1B[31m"
+# define GRN "\x1B[32m"
+# define YEL "\x1B[33m"
+# define BLU "\x1B[34m"
+# define MAG "\x1B[35m"
+# define CYN "\x1B[36m"
+# define WHT "\x1B[37m"
+# define EC "\x1B[0m"
 
 typedef struct	s_flags
 {
@@ -43,6 +50,7 @@ typedef struct	s_flags
 	char		*edited;
 	int			index;
 	int			ret;
+	char		*str;
 }				t_flags;
 
 int				ft_printf(const char *restrict format, ...);
@@ -84,6 +92,7 @@ char			*ft_memjoin(char const *s1, char const *s2, unsigned int n1);
 char			*ft_memnjoin(char const *s1, char const *s2, unsigned int n1, \
 		unsigned int n2);
 void			ft_handle_unicode(t_flags *flags, unsigned long long i);
+void			ft_handle_unicode_char(t_flags *flags, unsigned long long i);
 void			ft_double_octet(t_flags *flags, unsigned long long i);
 void			ft_triple_octet(t_flags *flags, unsigned long long i);
 void			ft_quad_octet(t_flags *flags, unsigned long long i);
