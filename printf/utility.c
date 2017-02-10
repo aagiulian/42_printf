@@ -1,16 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   variadic.c                                         :+:      :+:    :+:   */
+/*   utility.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:43:18 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 16:58:46 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 11:54:48 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*ft_grep_all(char *s, t_flags *flags, va_list *ap)
+{
+	ft_reset_struct(flags, ap);
+	s = ft_grep_flags(s, flags);
+	s = ft_grep_width(s, flags);
+	s = ft_grep_precision(s, flags);
+	s = ft_grep_length(s, flags);
+	s = ft_grep_conversion(s, flags);
+	return (s);
+}
 
 int		ft_maxtwo(int a, int b)
 {
@@ -48,51 +59,13 @@ int		ft_malloc_len(t_flags *flags)
 		return ((flags->raw_len) + sign + flags->space);
 }
 
-void	ft_edit_raw(t_flags *flags)
+char	*ft_edit_width(char *s, t_flags *flags)
 {
-	if (flags->sign > 0 && flags->zero_padding)
-		ft_put_sign(flags);
-	if (flags->space)
-		ft_put_space(flags);
-	if (flags->width > 0)
-		ft_set_width(flags);
-	if (flags->alternate_form)
-		ft_set_hashtag(flags);
-	if (flags->sign > 0)
-		ft_put_sign(flags);
-	while (flags->precision > flags->raw_len)
+	while (*s >= '0' && *s <= '9')
 	{
-		(flags->edited)[flags->index] = '0';
-		flags->precision--;
-		flags->index++;
+		flags->width *= 10;
+		flags->width += *s - '0';
+		s++;
 	}
-	ft_memcpy(flags->edited + flags->index, flags->raw - flags->sign, \
-			flags->raw_len);
-	(flags->edited)[flags->malloc_len] = '\0';
-}
-
-void	ft_edit_raw_left(t_flags *flags)
-{
-	if (flags->sign > 0)
-		ft_put_sign(flags);
-	if (flags->space)
-		ft_put_space(flags);
-	if (flags->alternate_form)
-		ft_set_hashtag(flags);
-	while (flags->precision > flags->raw_len)
-	{
-		(flags->edited)[flags->index] = '0';
-		flags->precision--;
-		flags->index++;
-	}
-	ft_memcpy(flags->edited + flags->index, flags->raw - flags->sign, \
-			flags->raw_len);
-	flags->index += flags->raw_len;
-	if ((flags->conversion == 'x' || flags->conversion == 'X' || \
-				flags->conversion == 'p') && \
-			flags->alternate_form)
-		flags->index -= 2;
-	if (flags->width > 0)
-		ft_set_width(flags);
-	(flags->edited)[flags->malloc_len] = '\0';
+	return (s);
 }

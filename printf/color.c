@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 01:24:54 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/10 01:51:55 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 11:11:41 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ static char	*ft_putcolor(char *temp_c, int i)
 	else if (temp_c + 4 && i == 7)
 		return (temp_c + 4);
 	return (NULL);
-
-
 }
+
 static void	ft_search_color(char *s, t_flags *flags, char **color_tab)
 {
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 16:46:46 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/10 00:55:09 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 11:42:37 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_handle_unicode_char(t_flags *flags, unsigned long long i)
 	else if (i >= 65536)
 		ft_quad_octet(flags, i);
 }
-
 
 void	ft_handle_unicode(t_flags *flags, unsigned long long i)
 {

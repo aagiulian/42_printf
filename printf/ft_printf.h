@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:31:06 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/10 01:37:17 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 11:52:53 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int				ft_malloc_len(t_flags *flags);
 void			ft_put_sign(t_flags *flags);
 void			ft_put_space(t_flags *flags);
 void			ft_fill_width(t_flags *flags);
+char			*ft_edit_width(char	*s, t_flags *flags);
 void			ft_set_hashtag(t_flags *flags);
 void			ft_set_width(t_flags *flags);
 void			ft_edit_raw(t_flags *flags);
@@ -99,6 +100,5 @@ void			ft_double_octet(t_flags *flags, unsigned long long i);
 void			ft_triple_octet(t_flags *flags, unsigned long long i);
 void			ft_quad_octet(t_flags *flags, unsigned long long i);
 void			ft_control_color(char *format, t_flags *flags);
-void			ft_print_flags(t_flags *flags); // a enlever
 
 #endif

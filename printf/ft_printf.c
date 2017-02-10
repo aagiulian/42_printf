@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:35:04 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/10 01:44:57 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 11:55:21 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	ft_free_stuff(char **buf, t_flags *flags)
 	if (flags->copy == 1)
 		ft_strdel(&flags->save);
 	free(flags);
-
 }
-int		ft_printf(const char *restrict format, ...)
+
+int			ft_printf(const char *restrict format, ...)
 {
 	va_list ap;
 	char	*buf;

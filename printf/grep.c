@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 14:51:28 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 18:41:38 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 11:54:33 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,7 @@ char	*ft_grep_flags(char *s, t_flags *flags)
 
 char	*ft_grep_width(char *s, t_flags *flags)
 {
-	while (*s >= '0' && *s <= '9')
-	{
-		flags->width *= 10;
-		flags->width += *s - '0';
-		s++;
-	}
+	s = ft_edit_width(s, flags);
 	s = ft_grep_flags(s, flags);
 	if (*s == '*')
 	{
@@ -53,12 +48,7 @@ char	*ft_grep_width(char *s, t_flags *flags)
 		if (*s >= '0' && *s <= '9')
 		{
 			flags->width = 0;
-			while (*s >= '0' && *s <= '9')
-			{
-				flags->width *= 10;
-				flags->width += *s - '0';
-				s++;
-			}
+			s = ft_edit_width(s, flags);
 		}
 	}
 	return (s);
@@ -116,12 +106,8 @@ char	*ft_grep_length(char *s, t_flags *flags)
 	else if (*s == 'z')
 		flags->z++;
 	else
-	{
-		s = ft_grep_flags(s, flags);
-		return (s);
-	}
-	s = ft_grep_flags(s + 1, flags);
-	return (s);
+		return (ft_grep_flags(s, flags));
+	return (ft_grep_flags(s + 1, flags));
 }
 
 char	*ft_grep_conversion(char *s, t_flags *flags)

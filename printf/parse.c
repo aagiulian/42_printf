@@ -6,22 +6,11 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 20:50:37 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/10 01:48:19 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/10 11:40:56 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char		*ft_grep_all(char *s, t_flags *flags, va_list *ap)
-{
-	ft_reset_struct(flags, ap);
-	s = ft_grep_flags(s, flags);
-	s = ft_grep_width(s, flags);
-	s = ft_grep_precision(s, flags);
-	s = ft_grep_length(s, flags);
-	s = ft_grep_conversion(s, flags);
-	return (s);
-}
 
 void		ft_set_priority(t_flags *flags)
 {
@@ -48,15 +37,15 @@ static char	*ft_split_second(char **s, char *buf, t_flags *flags)
 	return (buf);
 }
 
-
 static char	*ft_split_third(char *buf, t_flags *flags)
 {
-		if (flags->edited)
-			buf = ft_split(buf, flags);
-		if (flags->raw_len && flags->raw)
-			ft_strdel(&flags->raw);
-		return (buf);
+	if (flags->edited)
+		buf = ft_split(buf, flags);
+	if (flags->raw_len && flags->raw)
+		ft_strdel(&flags->raw);
+	return (buf);
 }
+
 char		*ft_strparse(char *s, va_list *ap, void (**ptr_tab)(t_flags*), \
 		t_flags *flags)
 {
