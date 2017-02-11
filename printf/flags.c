@@ -6,7 +6,7 @@
 /*   By: agiulian <agiulian@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 16:55:47 by agiulian          #+#    #+#             */
-/*   Updated: 2017/02/08 16:59:22 by agiulian         ###   ########.fr       */
+/*   Updated: 2017/02/11 14:11:31 by agiulian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	ft_put_space(t_flags *flags)
 	flags->index++;
 	if (flags->width)
 		flags->width--;
-	else
-		flags->precision--;
 	flags->space = -1;
 }
 
